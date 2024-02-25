@@ -1,61 +1,51 @@
-#include <stdio.h>
 #include <unistd.h>
+#include <stdio.h>
 
-int is_space(char c)
+void	rostring(char *str)
 {
-    if (c == 32 || c == 9 || c = 10)
-        return (1);
-    return (0);
+	int	i;
+	int	word_start;
+	int	word_end;
+
+	i = 0;
+	while (str[i] && (str[i] == 32 || (str[i] >= 9 && str[i] <= 13)))
+		i++;
+	word_start = i;
+	while (str[i] && (str[i] != 32 && str[i] != 9))
+		i++;
+	word_end = i;
+	while (str[i] && (str[i] == 32 || (str[i] >= 9 && str[i] <= 13)))
+		i++;
+	while(str[i])
+	{
+		while (str[i] && (str[i] != 32 && str[i] != 9))
+		{
+			write(1, &str[i], 1);
+			i++;
+		}
+		while (str[i] && (str[i] == 32 || str[i] == 9))
+			i++;
+		if (str[i - 1] != '\0')
+			write(1, " ", 1);
+	}
+	while (word_start < word_end)
+	{
+		write(1, &str[word_start], 1);
+		word_start++;
+	}
 }
 
-void    rostring(char *str)
+int	main(int argc, char **argv)
 {
-    int i;
-    int first_word_len;
-
-    i = 0;
-    first_word_len = 0;
-    while (str[i])
-        i++;
-    while (str[i] && !is_space(str[i]))
-    {
-        i++;
-        first_word_len++;
-    }
-    while (str[i])
-    {
-        while (str[i] && !is_space(str[i]) && is_space(str[i - 1]))
-        {
-            while (str[i] && !is_space(str[i]))
-            {
-                write(1, &str[i], 1);
-                i++;
-            }
-            write(1, " ", 1);
-        }
-        i++;
-    }
-    i = 0;
-    while (str[i])
-        i++;
-    while (first_word_len--)
-    {
-        write(1, &str[i], 1);
-        i++;
-    }
-}
-
-int main(int argc, char **argv)
-{
-    if (argc < 2)
-    {
-        write(1, "\n", 1);
-        return (0);
-    }
-    else
-    {
-        rostring(argv[1]);
-        write(1, "\n", 1);
-        return (0);
-    }
+	if (argc < 2)
+	{
+		write(1, "\n", 1);
+		return (0);
+	}
+	else
+	{
+		rostring(argv[1]);
+		write(1, "\n", 1);
+		return (0);
+	}
 }
