@@ -1,39 +1,33 @@
-#include <unistd.h>
-#include <stdio.h>
-
-void    sort_int_tab(int *tab, unsigned int size)
+void	sort_int_tab(int *tab, unsigned int size)
 {
-    unsigned int i;
-    int temp;
+	unsigned int	i = 0;
+	int	temp;
 
-    i = 0;
-    while (i < (size - 1))
-    {
-        if (tab[i] > tab[i + 1])
-        {
-            temp = tab[i];
-            tab[i] = tab[i + 1];
-            tab[i + 1] = temp;
-            i = 0;
-        }
-        else
-            i++;
-    }
+	while (i < (size - 1))
+	{
+		if (tab[i] > tab[i + 1])
+		{
+			temp = tab[i];
+			tab[i] = tab[i+ 1];
+			tab[i + 1] = temp;
+			i = 0;
+		}
+		else
+			i++;
+	}
 }
 
 int main(void)
 {
-    int tab[] = {5,3,6,1,9,2};
-    int i;
-    unsigned int size;
-
-    i = 0;
-    size = sizeof(tab) / sizeof(tab[0]);
+    int tab[] = {5, 3, 6, 1, 9, 2};
+    unsigned int size = sizeof(tab) / sizeof(tab[0]);
     sort_int_tab(tab, size);
-    while (i < size)
+
+    for(unsigned int i = 0; i < size; i++)
     {
-        printf("%d", tab[i]);
-        i++;
+        printf("%d ", tab[i]);
     }
-    return (0);
+
+    return 0;
 }
+
