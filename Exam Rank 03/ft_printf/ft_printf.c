@@ -59,7 +59,7 @@ int ft_print_hex(unsigned int nbr, int *count)
     char    str[16] = "0123456789abcdef";
 
     if (nbr >= 16)
-	ft_print_hex(nbr / 16, count);
+		ft_print_hex(nbr / 16, count);
     *count += write(1, &str[nbr % 16], 1);
     return (*count); // return int value by dereferencing pointer instead of returning memory address
 }
