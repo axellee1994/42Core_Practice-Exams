@@ -29,7 +29,7 @@ int	ft_putstr(char *str)
 	return (count);
 }
 
-// Output the number of integers to the standard input while taking note the count
+// Output the number of integers to the standard input while taking note of the count
 int	ft_putnbr(int nbr)
 {
 	char	digit;
@@ -59,12 +59,12 @@ int ft_print_hex(unsigned int nbr, int *count)
     char    str[16] = "0123456789abcdef";
 
     if (nbr >= 16)
-		ft_print_hex(nbr / 16, count);
+	ft_print_hex(nbr / 16, count);
     *count += write(1, &str[nbr % 16], 1);
     return (*count); // return int value by dereferencing pointer instead of returning memory address
 }
 
-// Simplified version of printf and use variable arguements
+// Simplified version of printf and use variable arguments
 int	ft_printf(const char *format, ...)
 {
 	va_list			args;
