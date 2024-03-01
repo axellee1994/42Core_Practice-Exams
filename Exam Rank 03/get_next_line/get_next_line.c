@@ -104,3 +104,19 @@ char	*get_next_line(int fd)
 	line[to_copy] = '\0';
 	return (line);
 }
+
+int main(void)
+{
+    int fd;
+    char    *line;
+
+    fd = open("test.txt", O_RDONLY);
+    line = get_next_line(fd);
+    while (line  != NULL)
+    {
+        printf("%s\n", line);
+        free(line);
+    }
+    close(fd);
+    return (0);
+}
