@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 // Output single characters
-int	ft_putchar(char *c)
+int	ft_putchar(char c)
 {
 	if (write(1, &c, 1) == 0)
 		return (0);
@@ -20,7 +20,7 @@ int	ft_putstr(char *str)
 	i = 0;
 	count = 0;
 	if (!str)
-		return (NULL);
+		str = "(null)";
 	while (str[i])
 	{
 		ft_putchar(str[i++]);
@@ -33,28 +33,24 @@ int	ft_putstr(char *str)
 int	ft_putnbr(int nbr)
 {
 	char	digit;
-	int		count;
+	int	count;
 
 	count = 0;
 	if (nbr == -2147483648)
-	{
-		count += ft_putnbr(nbr / 10);
-		digit = '8';
-	}
-	else if (nbr < 0)
-	{
-		count += ft_putchar('-');
-		count += ft_putnbr(-nbr);
-	}
-	else if (nbr > 10)
-	{
-		count += ft_putnbr(nbr / 10);
-		digit = (nbr % 10) + '0';
-	}
+		count += ft_putstr("-2147483648");
 	else
-		digit = nbr + '0';
+	{
+		if (nbr < 0)
+		{
+			count += ft_putchar('-');
+			nbr = -nbr;
+		}
+        if (nbr >= 10)
+		count += ft_putnbr(nbr / 10);
+	digit = (nbr % 10) + '0';
 	count += write(1, &digit, 1);
-	return (count);
+    }
+    return (count);
 }
 
 // Outputs the hexadecimal equivalent to the integer while taking note of how many characters was printed
@@ -63,7 +59,7 @@ int ft_print_hex(unsigned int nbr, int *count)
     char    str[16] = "0123456789abcdef";
 
     if (nbr >= 16)
-        *count += ft_print_hex(nbr / 16, count);
+	ft_print_hex(nbr / 16, count);
     *count += write(1, &str[nbr % 16], 1);
     return (*count); // return int value by dereferencing pointer instead of returning memory address
 }
@@ -97,7 +93,7 @@ int	ft_printf(const char *format, ...)
             else if (*format == 'x')
             {
                 x = va_arg(args, unsigned int);
-                count += ft_print_hex(x, &count);
+                ft_print_hex(x, &count);
             }
         }
         else
@@ -108,9 +104,9 @@ int	ft_printf(const char *format, ...)
         format++;
     }
     va_end(args);
-    return (count);
+	return (count);
 }
-
+/*
 int main(void)
 {
     ft_printf("%s\n", "toto");
@@ -118,3 +114,4 @@ int main(void)
     ft_printf("Hexadecimal for %d is %x\n", 42, 42);
     return (0);
 }
+*/
