@@ -37,19 +37,19 @@ int	ft_putnbr(int nbr)
 
 	count = 0;
 	if (nbr == -2147483648)
-		count += ft_putstr("-2147483648");
-	else
 	{
-		if (nbr < 0)
-		{
-			count += ft_putchar('-');
-			nbr = -nbr;
-		}
-        if (nbr >= 10)
+		count += ft_putstr("-2147483648");
+		return (count);
+	}
+	else if (nbr < 0)
+	{
+		count += ft_putchar('-');
+		nbr = -nbr;
+	}
+    if (nbr >= 10)
 		count += ft_putnbr(nbr / 10);
 	digit = (nbr % 10) + '0';
 	count += write(1, &digit, 1);
-    }
     return (count);
 }
 
