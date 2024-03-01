@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+// Output single characters
 int	ft_putchar(char *c)
 {
 	if (write(1, &c, 1) == 0)
@@ -10,6 +11,7 @@ int	ft_putchar(char *c)
 		return (1);
 }
 
+// Output characters in the string and take note of how many letters there are
 int	ft_putstr(char *str)
 {
 	int	i;
@@ -27,6 +29,7 @@ int	ft_putstr(char *str)
 	return (count);
 }
 
+// Output the number of integers to the standard input while taking note the count
 int	ft_putnbr(int nbr)
 {
 	char	digit;
@@ -54,6 +57,7 @@ int	ft_putnbr(int nbr)
 	return (count);
 }
 
+// Outputs the hexadecimal equivalent to the integer while taking note of how many characters was printed
 int ft_print_hex(unsigned int nbr, int *count)
 {
     char    str[16] = "0123456789abcdef";
@@ -61,9 +65,10 @@ int ft_print_hex(unsigned int nbr, int *count)
     if (nbr >= 16)
         *count += ft_print_hex(nbr / 16, count);
     *count += write(1, &str[nbr % 16], 1);
-    return (*count); // return int value by dereferencing pointer as, return memory address
+    return (*count); // return int value by dereferencing pointer instead of returning memory address
 }
 
+// Simplified version of printf and use variable arguements
 int	ft_printf(const char *format, ...)
 {
 	va_list			args;
