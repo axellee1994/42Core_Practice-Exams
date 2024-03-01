@@ -110,6 +110,7 @@ int	ft_printf(const char *format, ...)
     va_end(args);
     return (count);
 }
+
 int main(void)
 {
     ft_printf("%s\n", "toto");
