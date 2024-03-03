@@ -97,10 +97,7 @@ int	ft_printf(const char *format, ...)
             }
         }
         else
-        {
-            ft_putchar(*format);
-            count++;
-        }
+		count += write(1, "%", 1);
         format++;
     }
     va_end(args);
