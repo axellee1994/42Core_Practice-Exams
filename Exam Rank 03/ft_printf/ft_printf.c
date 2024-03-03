@@ -41,6 +41,11 @@ int	ft_putnbr(int nbr)
 		count += ft_putstr("-2147483648");
 		return (count);
 	}
+	else if (nbr == 2147483647)
+	{
+		count += ft_putstr("2147483647");
+		return (count);
+	}
 	else if (nbr < 0)
 	{
 		count += ft_putchar('-');
