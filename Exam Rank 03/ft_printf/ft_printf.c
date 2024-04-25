@@ -53,9 +53,9 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	printf("%s\n", "toto");
 	printf("%d\n", 42);
 	printf("%x\n", 42);
-}*/
+}
