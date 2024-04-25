@@ -2,7 +2,7 @@
 
 char *get_next_line(int fd)
 {
-	static char buff[9999999] = {0};
+	static char buff[9999999] = {'\0'};
 	static int i = 0;
 	int k = 0, read_byte = 1;
 	char *line;
