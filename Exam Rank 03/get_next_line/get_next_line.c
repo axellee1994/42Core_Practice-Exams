@@ -1,12 +1,12 @@
 #include "get_next_line.h"
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char buff[9999999] = {'\0'};
-	static int i = 0;
-	int k = 0, read_byte = 1;
-	char *line;
-
+	static char	buff[9999999] = {'\0'};
+	static int	i = 0;
+	int	k = 0;
+	int	read_byte = 1;
+	char	*line;
 	while (read_byte > 0)
 	{
 		read_byte = read(fd, &buff[k], BUFFER_SIZE);
@@ -23,7 +23,7 @@ char *get_next_line(int fd)
 	line[read_byte + (buff[i + read_byte] == '\n')] = '\0';
 	k = 0;
 	while (k <= read_byte)
-		line[k++] = buff[i++];	
+		line[k++] = buff[i++];
 	return line;
 }
 
