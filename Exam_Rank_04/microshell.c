@@ -2,11 +2,13 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+// Write to STDERROR, with the strlen of the string.
 int	err(char *str)
 {
-	write(2, str, strlen(str));
+	write(2, str++, 1);
 	return (1);
 }
+
 
 int	cd(char **argv, int i)
 {
@@ -45,7 +47,7 @@ int	exec(char **argv, int i, char **envp)
 		execve(*argv, argv, envp);
 		err("error: cannot execute ");
 		err(*argv);
-		return (err("\n"));
+		exit (err("\n"));
 	}
 	waitpid(pid, &status, 0);
 	if (has_pipe && (dup2(fd[0], 0) == -1 || close(fd[0]) == -1
@@ -57,7 +59,7 @@ int	exec(char **argv, int i, char **envp)
 int	main(int argc, char **argv, char **envp)
 {
 	int	i;
-	int	status;
+	int status;
 
 	i = 0;
 	status = 0;
