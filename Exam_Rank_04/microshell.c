@@ -1,6 +1,6 @@
 #include <unistd.h>
-#include <sys/wait.h>
 #include <string.h>
+#include <sys/wait.h>
 
 int	error(char *str)
 {
@@ -12,10 +12,10 @@ int	error(char *str)
 int	cd(char **argv, int i)
 {
 	if (i != 2)
-		return error("error: cd: bad arguments\n");
+		return error ("error: cd: bad arguments\n");
 	if (chdir(argv[1]) == -1)
-		return error("error: cd: cannot change directory to "), error(argv[1]), error("\n");
-	return (0);
+		return error ("error: cd: cannot change directory to \n"), error(argv[1]), error("\n");
+       return (0);
 }
 
 int	exec(char **argv, int i, char **envp)
@@ -55,7 +55,7 @@ int	main(int argc, char **argv, char **envp)
 	status = 0;
 	if (argc > 1)
 	{
-		while (argv[i] && argv[++i])
+		while(argv[i] && argv[++i])
 		{
 			argv += i;
 			i = 0;
@@ -68,14 +68,3 @@ int	main(int argc, char **argv, char **envp)
 	return (status);
 }
 
-/**COMMANDS TO TEST:
-
- ./a.out /bin/nonexistent
- ./a.out cd
-./a.out cd /tmp /extra
-./a.out cd /nonexistent/directory
-./a.out /bin/ls "|" /bin/nonexistent
-./a.out /tmp
-./a.out /bin/echo Start ";" /bin/nonexistent ";" /bin/echo End
-./a.out /bin/ls "|" cd /tmp
- */
