@@ -35,8 +35,6 @@ int	exec(char **argv, int i, char **envp)
 		argv[i] = 0;
 		if (has_pipe && (dup2(fd[1], 1) == -1 || close(fd[0]) == -1 || close(fd[1]) == -1))
 			return error("error: fatal\n");
-		if (!strcmp(*argv, "cd"))
-			return cd(argv, i);
 		execve(*argv, argv, envp);
 		return error("error: cannot execute "), error(*argv), error("\n");
 	}
