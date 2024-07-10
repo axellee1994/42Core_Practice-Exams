@@ -68,3 +68,14 @@ int	main(int argc, char **argv, char **envp)
 	return (status);
 }
 
+/**COMMANDS TO TEST:
+
+ ./a.out /bin/nonexistent
+ ./a.out cd
+./a.out cd /tmp /extra
+./a.out cd /nonexistent/directory
+./a.out /bin/ls "|" /bin/nonexistent
+./a.out /tmp
+./a.out /bin/echo Start ";" /bin/nonexistent ";" /bin/echo End
+./a.out /bin/ls "|" cd /tmp
+ */
