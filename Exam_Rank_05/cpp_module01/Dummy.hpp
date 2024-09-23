@@ -1,3 +1,4 @@
+#pragma once
 #ifndef DUMMY_HPP
 # define DUMMY_HPP
 
@@ -8,6 +9,6 @@ class Dummy : public ATarget
 	public:
 		Dummy();
 		~Dummy();
-		ATarget * clone() const;
+		ATarget *clone() const;
 };
 #endif

@@ -1,9 +1,5 @@
 #include "Warlock.hpp"
 
-Warlock::Warlock()
-{
-}
-
 Warlock::Warlock(const std::string &name, const std::string &title) : name(name), title(title)
 {
 	std::cout << this->name << ": This looks like another boring day." << std::endl;
@@ -14,7 +10,7 @@ Warlock::Warlock(const Warlock &src)
 	*this = src;
 }
 
-Warlock &Warlock::operator=(const Warlock &rhs)
+Warlock	&Warlock::operator=(const Warlock &rhs)
 {
 	if (this != &rhs)
 	{

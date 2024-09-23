@@ -9,7 +9,7 @@ ASpell::ASpell(const ASpell &src)
 	*this = src;
 }
 
-ASpell &ASpell::operator=(const ASpell &rhs)
+ASpell	&ASpell::operator=(const ASpell &rhs)
 {
 	if (this != &rhs)
 	{
@@ -23,17 +23,18 @@ ASpell::~ASpell()
 {
 }
 
-const std::string &ASpell::getName() const
+const	std::string &ASpell::getName() const
 {
 	return this->name;
 }
 
-const std::string &ASpell::getEffects() const
+const	std::string &ASpell::getEffects() const
 {
 	return this->effects;
 }
 
-void	ASpell::launch(ATarget const &target)
+void	ASpell::launch(ATarget const &target) const
 {
 	target.getHitBySpell(*this);
 }
+

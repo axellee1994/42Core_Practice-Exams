@@ -9,26 +9,25 @@ ATarget::ATarget(const ATarget &src)
 	*this = src;
 }
 
-ATarget &ATarget::operator=(const ATarget &rhs)
+ATarget	&ATarget::operator=(const ATarget &rhs)
 {
 	if (this != &rhs)
 	{
-		type = rhs.type;
+		this->type = rhs.type;
 	}
 	return *this;
 }
 
 ATarget::~ATarget()
 {
-
 }
 
-const std::string &ATarget::getType() const
+const	std::string &ATarget::getType() const
 {
 	return this->type;
 }
 
-void ATarget::getHitBySpell(ASpell const &spell) const
+void	ATarget::getHitBySpell(ASpell const &spell) const
 {
 	std::cout << this->type << " has been " << spell.getEffects() << "!" << std::endl;
 }

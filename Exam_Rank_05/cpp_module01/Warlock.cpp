@@ -1,9 +1,5 @@
 #include "Warlock.hpp"
 
-Warlock::Warlock()
-{
-}
-
 Warlock::Warlock(const std::string &name, const std::string &title) : name(name), title(title)
 {
 	std::cout << this->name << ": This looks like another boring day." << std::endl;
@@ -14,7 +10,7 @@ Warlock::Warlock(const Warlock &src)
 	*this = src;
 }
 
-Warlock &Warlock::operator=(const Warlock &rhs)
+Warlock	&Warlock::operator=(const Warlock &rhs)
 {
 	if (this != &rhs)
 	{
@@ -27,7 +23,7 @@ Warlock &Warlock::operator=(const Warlock &rhs)
 Warlock::~Warlock()
 {
 	std::cout << this->name << ": My job here is done!" << std::endl;
-	for (std::map < std::string, ASpell *>::iterator it=SpellBook.begin(); it!=SpellBook.end(); ++it)
+	for(std::map < std::string, ASpell *>:: iterator it = SpellBook.begin(); it != SpellBook.end(); ++it)
 	{
 		delete it->second;
 	}
@@ -67,7 +63,7 @@ void	Warlock::learnSpell(ASpell *spell)
 
 void	Warlock::forgetSpell(std::string SpellName)
 {
-	std::map < std::string, ASpell *>::iterator it = SpellBook.find(SpellName);
+	std::map < std::string, ASpell *>::iterator it=SpellBook.find(SpellName);
 	if (it != SpellBook.end())
 	{
 		delete it->second;
@@ -77,12 +73,11 @@ void	Warlock::forgetSpell(std::string SpellName)
 
 void	Warlock::launchSpell(std::string SpellName, ATarget const &target)
 {
-	std::map < std::string, ASpell *>::iterator it = SpellBook.find(SpellName);
+	std::map < std::string, ASpell *>::iterator it=SpellBook.find(SpellName);
+	if (it != SpellBook.end())
 	{
-		if (it != SpellBook.end())
-		{
-			it->second->launch(target);
-		}
+		it->second->launch(target);
 	}
 }
+
 
