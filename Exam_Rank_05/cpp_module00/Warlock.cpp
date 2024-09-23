@@ -2,9 +2,9 @@
 
 Warlock::Warlock()
 {
-};
+}
 
-Warlock::Warlock(const std::string &name, const std::string &title): name(name), title(title)
+Warlock::Warlock(const std::string &name, const std::string &title) : name(name), title(title)
 {
 	std::cout << this->name << ": This looks like another boring day." << std::endl;
 }
@@ -48,4 +48,3 @@ void	Warlock::introduce() const
 {
 	std::cout << this->name << ": I am " << this->name << ", " << this->title << "!" << std::endl;
 }
-

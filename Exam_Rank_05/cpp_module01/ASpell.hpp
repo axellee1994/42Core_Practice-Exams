@@ -2,10 +2,9 @@
 #ifndef ASPELL_HPP
 # define ASPELL_HPP
 
-
+# include "ATarget.hpp"
 # include <iostream>
 # include <string>
-# include "ATarget.hpp"
 
 class ATarget;
 
@@ -24,6 +23,6 @@ class ASpell
 		const std::string &getEffects() const;
 
 		virtual ASpell* clone() const = 0;
-		void launch(ATarget const &target) const;
+		void	launch(ATarget const &target);
 };
 #endif

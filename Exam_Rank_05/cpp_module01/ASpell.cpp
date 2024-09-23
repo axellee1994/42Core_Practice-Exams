@@ -23,18 +23,17 @@ ASpell::~ASpell()
 {
 }
 
-const	std::string &ASpell::getName() const
+const std::string &ASpell::getName() const
 {
 	return this->name;
 }
 
-const	std::string &ASpell::getEffects() const
+const std::string &ASpell::getEffects() const
 {
 	return this->effects;
 }
 
-void	ASpell::launch(ATarget const &target) const
+void	ASpell::launch(ATarget const &target)
 {
 	target.getHitBySpell(*this);
 }
-
