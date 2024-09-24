@@ -23,7 +23,7 @@ Warlock	&Warlock::operator=(const Warlock &rhs)
 Warlock::~Warlock()
 {
 	std::cout << this->name << ": My job here is done!" << std::endl;
-	for(std::map < std::string, ASpell *>:: iterator it = SpellBook.begin(); it != SpellBook.end(); ++it)
+	for (std::map < std::string, ASpell *>::iterator it=SpellBook.begin(); it != SpellBook.end(); ++it)
 	{
 		delete it->second;
 	}
@@ -50,7 +50,7 @@ void	Warlock::introduce() const
 	std::cout << this->name << ": I am " << this->name << ", " << this->title << "!" << std::endl;
 }
 
-void	Warlock::learnSpell(ASpell *spell)
+void	Warlock::learnSpell(ASpell  *spell)
 {
 	if (spell)
 	{
@@ -79,5 +79,3 @@ void	Warlock::launchSpell(std::string SpellName, ATarget const &target)
 		it->second->launch(target);
 	}
 }
-
-

@@ -1,18 +1,18 @@
 #ifndef WARLOCK_HPP
 # define WARLOCK_HPP
 
-
-# include "ASpell.hpp"
 # include <iostream>
-# include <string>
 # include <map>
+# include <string>
+# include "ASpell.hpp"
+# include "ATarget.hpp"
 
 class Warlock
 {
 	private:
 		std::string	name;
 		std::string	title;
-		std::map < std::string, ASpell * > SpellBook;
+		std::map < std::string, ASpell *> SpellBook;
 		Warlock();
 		Warlock(const Warlock &src);
 		Warlock&operator=(const Warlock &rhs);
@@ -20,8 +20,8 @@ class Warlock
 		Warlock(const std::string &name, const std::string &title);
 		~Warlock();
 
-		const std::string &getName() const;
-		const std::string &getTitle() const;
+		const	std::string &getName() const;
+		const	std::string &getTitle() const;
 
 		void	setTitle(const std::string &title);
 		void	introduce() const;

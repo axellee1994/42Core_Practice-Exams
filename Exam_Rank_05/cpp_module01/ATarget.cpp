@@ -9,7 +9,7 @@ ATarget::ATarget(const ATarget &src)
 	*this = src;
 }
 
-ATarget	&ATarget::operator=(const ATarget &rhs)
+ATarget &ATarget::operator=(const ATarget &rhs)
 {
 	if (this != &rhs)
 	{
