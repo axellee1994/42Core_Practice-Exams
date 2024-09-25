@@ -1,23 +1,26 @@
+#pragma once
 #ifndef SPELLBOOK_HPP
-#define SPELLBOOK_HPP
+# define SPELLBOOK_HPP
 
-#include <iostream>
-#include <map>
-#include "ASpell.hpp"
+# include "ASpell.hpp"
+# include <iostream>
+# include <map>
+# include <string>
+
+class ASpell;
 
 class SpellBook
 {
-    private:
-        std::map<std::string, ASpell*> spells;
-        SpellBook(const SpellBook &src);
-        SpellBook& operator=(const SpellBook &rhs);
-    public:
-        SpellBook();
-        ~SpellBook();
+	private:
+		std::map < std::string, ASpell *> spells;
+		SpellBook(const SpellBook &src);
+		SpellBook&operator=(const SpellBook &rhs);
+	public:
+		SpellBook();
+		~SpellBook();
 
-        void learnSpell(ASpell* spell);
-        void forgetSpell(const std::string &spellName);
-        ASpell* createSpell(const std::string &spellName);
+		void	learnSpell(ASpell *spell);
+		void	forgetSpell(std::string const &spellName);
+		ASpell *createSpell(std::string const &spellName);
 };
-
 #endif

@@ -25,6 +25,7 @@ Warlock::~Warlock()
 	std::cout << this->name << ": My job here is done!" << std::endl;
 }
 
+
 const	std::string &Warlock::getName() const
 {
 	return this->name;
@@ -42,5 +43,5 @@ void	Warlock::setTitle(const std::string &title)
 
 void	Warlock::introduce() const
 {
-	std::cout << this->name << ": I am " << this->name << ", " << this->title << "!" << std::endl;
+	std::cout << this->name << ": I am " << this->name << ", "  << this->title << "!" << std::endl;
 }

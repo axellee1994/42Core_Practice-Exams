@@ -2,65 +2,66 @@
 
 Warlock::Warlock(const std::string &name, const std::string &title) : name(name), title(title)
 {
-    std::cout << this->name << ": This looks like another boring day." << std::endl;
+	std::cout << this->name << ": This looks like another boring day." << std::endl;
 }
 
 Warlock::Warlock(const Warlock &src)
 {
-    *this = src;
+	*this = src;
 }
 
-Warlock& Warlock::operator=(const Warlock &rhs)
+Warlock	&Warlock::operator=(const Warlock &rhs)
 {
-    if (this != &rhs)
-    {
-        this->name = rhs.name;
-        this->title = rhs.title;
-    }
-    return *this;
+	if (this != &rhs)
+	{
+		this->name = rhs.name;
+		this->title = rhs.title;
+	}
+	return *this;
 }
 
 Warlock::~Warlock()
 {
-    std::cout << this->name << ": My job here is done!" << std::endl;
+	std::cout << this->name << ": My job here is done!" << std::endl;
 }
 
-const std::string &Warlock::getName() const
+
+const	std::string &Warlock::getName() const
 {
-    return this->name;
+	return this->name;
 }
 
-const std::string &Warlock::getTitle() const
+const	std::string &Warlock::getTitle() const
 {
-    return this->title;
+	return this->title;
 }
 
-void Warlock::setTitle(const std::string &title)
+void	Warlock::setTitle(const std::string &title)
 {
-    this->title = title;
+	this->title = title;
 }
 
-void Warlock::introduce() const
+void	Warlock::introduce() const
 {
-    std::cout << this->name << ": I am " << this->name << ", " << this->title << "!" << std::endl;
+	std::cout << this->name << ": I am " << this->name << ", "  << this->title << "!" << std::endl;
 }
 
-void Warlock::learnSpell(ASpell* spell)
+void	Warlock::learnSpell(ASpell *spell)
 {
-    spellBook.learnSpell(spell);
+	spellBook.learnSpell(spell);
 }
 
-void Warlock::forgetSpell(std::string spellName)
+void	Warlock::forgetSpell(std::string SpellName)
 {
-    spellBook.forgetSpell(spellName);
+	spellBook.forgetSpell(SpellName);
 }
 
-void Warlock::launchSpell(std::string spellName, ATarget const &target)
+void	Warlock::launchSpell(std::string SpellName, ATarget const &target)
 {
-    ASpell* spell = spellBook.createSpell(spellName);
-    if (spell)
-    {
-        spell->launch(target);
-        delete spell;
-    }
+	ASpell *spell = spellBook.createSpell(SpellName);
+	if (spell)
+	{
+		spell->launch(target);
+		delete spell;
+	}
 }

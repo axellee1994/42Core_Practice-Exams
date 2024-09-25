@@ -23,12 +23,13 @@ Warlock	&Warlock::operator=(const Warlock &rhs)
 Warlock::~Warlock()
 {
 	std::cout << this->name << ": My job here is done!" << std::endl;
-	for (std::map < std::string, ASpell *>::iterator it=SpellBook.begin(); it != SpellBook.end(); ++it)
+	for (std::map < std::string , ASpell *>::iterator it=SpellBook.begin(); it != SpellBook.end(); ++it)
 	{
 		delete it->second;
 	}
 	SpellBook.clear();
 }
+
 
 const	std::string &Warlock::getName() const
 {
@@ -47,14 +48,14 @@ void	Warlock::setTitle(const std::string &title)
 
 void	Warlock::introduce() const
 {
-	std::cout << this->name << ": I am " << this->name << ", " << this->title << "!" << std::endl;
+	std::cout << this->name << ": I am " << this->name << ", "  << this->title << "!" << std::endl;
 }
 
-void	Warlock::learnSpell(ASpell  *spell)
+void	Warlock::learnSpell(ASpell *spell)
 {
 	if (spell)
 	{
-		if (SpellBook.find(spell->getName()) == SpellBook.end())
+		if(SpellBook.find(spell->getName()) == SpellBook.end())
 		{
 			SpellBook[spell->getName()] = spell->clone();
 		}
@@ -76,6 +77,6 @@ void	Warlock::launchSpell(std::string SpellName, ATarget const &target)
 	std::map < std::string, ASpell *>::iterator it=SpellBook.find(SpellName);
 	if (it != SpellBook.end())
 	{
-		it->second->launch(target);
+		return it->second->launch(target);
 	}
 }

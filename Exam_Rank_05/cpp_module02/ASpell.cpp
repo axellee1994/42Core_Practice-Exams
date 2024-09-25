@@ -6,34 +6,34 @@ ASpell::ASpell(const std::string &name, const std::string &effects) : name(name)
 
 ASpell::ASpell(const ASpell &src)
 {
-    *this = src;
+	*this = src;
 }
 
-ASpell &ASpell::operator=(const ASpell &rhs)
+ASpell	&ASpell::operator=(const ASpell &rhs)
 {
-    if (this != &rhs)
-    {
-        this->name = rhs.name;
-        this->effects = rhs.effects;
-    }
-    return *this;
+	if (this != &rhs)
+	{
+		this->name = rhs.name;
+		this->effects = rhs.effects;
+	}
+	return *this;
 }
 
 ASpell::~ASpell()
 {
 }
 
-const std::string &ASpell::getName() const
+const	std::string &ASpell::getName() const
 {
-    return this->name;
+	return this->name;
 }
 
-const std::string &ASpell::getEffects() const
+const	std::string &ASpell::getEffects() const
 {
-    return this->effects;
+	return this->effects;
 }
 
-void ASpell::launch(ATarget const &target) const
+void	ASpell::launch(ATarget const &target) const
 {
-    target.getHitBySpell(*this);
+	target.getHitBySpell(*this);
 }

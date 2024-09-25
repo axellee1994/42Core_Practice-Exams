@@ -2,10 +2,10 @@
 # define WARLOCK_HPP
 
 # include <iostream>
-# include <map>
-# include <string>
 # include "ASpell.hpp"
 # include "ATarget.hpp"
+# include <map>
+# include <string>
 
 class Warlock
 {

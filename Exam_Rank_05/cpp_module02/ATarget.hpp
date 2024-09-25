@@ -10,17 +10,18 @@ class ASpell;
 
 class ATarget
 {
-    protected:
-        std::string type;
-    public:
-        ATarget(const std::string &type);
-        ATarget(const ATarget &src);
-        ATarget& operator=(const ATarget &rhs);
-        virtual ~ATarget();
+	protected:
+		std::string	type;
+	public:
+		ATarget(const std::string &type);
+		ATarget(const ATarget &src);
+		ATarget&operator=(const ATarget &rhs);
+		virtual ~ATarget();
 
-        const std::string &getType() const;
+		
+		const	std::string &getType() const;
 
-        virtual ATarget *clone() const = 0;
-        void getHitBySpell(ASpell const &spell) const;
+		virtual	ATarget *clone() const = 0;
+		void	getHitBySpell(ASpell const &spell) const;
 };
 #endif

@@ -9,7 +9,7 @@ ASpell::ASpell(const ASpell &src)
 	*this = src;
 }
 
-ASpell &ASpell::operator=(const ASpell &rhs)
+ASpell	&ASpell::operator=(const ASpell &rhs)
 {
 	if (this != &rhs)
 	{

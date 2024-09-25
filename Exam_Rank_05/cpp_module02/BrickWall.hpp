@@ -1,10 +1,13 @@
-#pragma once
-#include "ATarget.hpp"
+#ifndef BRICKWALL_HPP
+# define BRICKWALL_HPP
+
+# include "ATarget.hpp"
 
 class BrickWall : public ATarget
 {
-	public :
+	public:
 		BrickWall();
 		~BrickWall();
-		ATarget* clone() const;
+		ATarget *clone() const;
 };
+#endif

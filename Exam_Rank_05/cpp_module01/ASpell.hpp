@@ -22,7 +22,7 @@ class ASpell
 		const	std::string &getName() const;
 		const	std::string &getEffects() const;
 
-		virtual ASpell *clone() const = 0;
-		void	launch(ATarget const &target) const;
+		virtual	ASpell *clone() const = 0;
+		void	launch (ATarget const &target) const;
 };
 #endif

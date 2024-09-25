@@ -4,39 +4,43 @@ TargetGenerator::TargetGenerator()
 {
 }
 
+
 TargetGenerator::~TargetGenerator()
 {
-    for (std::map<std::string, ATarget*>::iterator it = targets.begin(); it != targets.end(); ++it)
-    {
-        delete it->second;
-    }
-    targets.clear();
+	for (std::map < std::string, ATarget *>::iterator it=targets.begin(); it != targets.end(); ++it)
+	{
+		delete it->second;
+	}
+	targets.clear();
 }
 
-void TargetGenerator::learnTargetType(ATarget* target)
+void	TargetGenerator::learnTargetType(ATarget *type)
 {
-    if (target)
-    {
-        targets[target->getType()] = target->clone();
-    }
+	if (type)
+	{
+		if (targets.find(type->getType()) == targets.end())
+		{
+			targets[type->getType()] = type->clone();
+		}
+	}
 }
 
-void TargetGenerator::forgetTargetType(std::string const &type)
+void	TargetGenerator::forgetTargetType(std::string const &type)
 {
-    std::map<std::string, ATarget*>::iterator it = targets.find(type);
-    if (it != targets.end())
-    {
-        delete it->second;
-        targets.erase(it);
-    }
+	std::map < std::string, ATarget *>::iterator it=targets.find(type);
+	if (it != targets.end())
+	{
+		delete it->second;
+		targets.erase(it);
+	}
 }
 
-ATarget* TargetGenerator::createTarget(std::string const &type)
+ATarget	*TargetGenerator::createTarget(std::string const &type)
 {
-    std::map<std::string, ATarget*>::iterator it = targets.find(type);
-    if (it != targets.end())
-    {
-        return it->second->clone();
-    }
-    return NULL;
+	std::map < std::string, ATarget *>::iterator it=targets.find(type);
+	if (it != targets.end())
+	{
+		return (it->second->clone());
+	}
+	return NULL;
 }

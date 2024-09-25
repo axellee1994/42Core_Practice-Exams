@@ -2,17 +2,17 @@
 # define WARLOCK_HPP
 
 # include <iostream>
-# include <string>
 # include "ASpell.hpp"
 # include "ATarget.hpp"
 # include "SpellBook.hpp"
+# include <string>
 
 class Warlock
 {
 	private:
 		std::string	name;
 		std::string	title;
-		SpellBook spellBook;
+		SpellBook	spellBook;
 		Warlock();
 		Warlock(const Warlock &src);
 		Warlock&operator=(const Warlock &rhs);
@@ -27,7 +27,7 @@ class Warlock
 		void	introduce() const;
 
 		void	learnSpell(ASpell *spell);
-		void	forgetSpell(std::string spellName);
-		void	launchSpell(std::string spellName, ATarget const &target);
+		void	forgetSpell(std::string SpellName);
+		void	launchSpell(std::string SpellName, ATarget const &target);
 };
 #endif
