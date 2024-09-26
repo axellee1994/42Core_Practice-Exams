@@ -4,6 +4,19 @@ TargetGenerator::TargetGenerator()
 {
 }
 
+TargetGenerator::TargetGenerator(const TargetGenerator &src)
+{
+	*this = src;
+}
+
+TargetGenerator &TargetGenerator::operator=(const TargetGenerator &rhs)
+{
+	if (this != &rhs)
+	{
+		targets = rhs.targets;
+	}
+	return *this;
+}
 
 TargetGenerator::~TargetGenerator()
 {

@@ -36,7 +36,7 @@ const	std::string &Warlock::getTitle() const
 	return this->title;
 }
 
-void	Warlock::setTitle(const std::string &title)
+void	Warlock::setTitle(std::string const &title)
 {
 	this->title = title;
 }

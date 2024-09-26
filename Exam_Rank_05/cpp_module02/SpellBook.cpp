@@ -4,6 +4,20 @@ SpellBook::SpellBook()
 {
 }
 
+SpellBook::SpellBook(const SpellBook &src)
+{
+	*this = src;
+}
+
+SpellBook &SpellBook::operator=(const SpellBook &rhs)
+{
+	if (this != &rhs)
+	{
+		spells = rhs.spells;
+	}
+	return *this;
+}
+
 SpellBook::~SpellBook()
 {
 	for(std::map < std::string, ASpell *>::iterator it=spells.begin(); it != spells.end(); ++it)

@@ -18,7 +18,6 @@ class ATarget
 		ATarget&operator=(const ATarget &rhs);
 		virtual ~ATarget();
 
-		
 		const	std::string &getType() const;
 
 		virtual	ATarget *clone() const = 0;
