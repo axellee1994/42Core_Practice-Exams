@@ -6,7 +6,7 @@
 #include <netdb.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-
+#include <sys/select.h>
 typedef struct s_client
 {
 	int		id;
@@ -119,3 +119,4 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+
